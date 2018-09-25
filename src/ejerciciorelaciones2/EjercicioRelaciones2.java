@@ -17,10 +17,21 @@ public class EjercicioRelaciones2 {
         Cuenta cuenta1 = new Cuenta(2, 0, "Cliente_2");
         
         
-        cuenta1.getMovimientos().add(new Movimiento(cuenta1.getSaldo(),200,new Tipo("Retiro")));
-        cuenta1.getMovimientos().add(new Movimiento(cuenta1.getSaldo(),250,new Tipo("Consignacion")));
-        cuenta2.getMovimientos().add(new Movimiento(cuenta2.getSaldo(),300,new Tipo("Retiro")));
         cuenta2.getMovimientos().add(new Movimiento(cuenta2.getSaldo(),500,new Tipo("Consignacion")));
+        cuenta2.crearConsignacion(1000, 500);
+        cuenta2.getMovimientos().add(new Movimiento(cuenta2.getSaldo(),300,new Tipo("Retiro")));
+        cuenta2.crearRetiro(1500, 300);
+        cuenta2.getMovimientos().add(new Movimiento(cuenta2.getSaldo(),200,new Tipo("Retiro")));
+        cuenta2.crearRetiro(1200, 200);
+        
+        
+        cuenta1.getMovimientos().add(new Movimiento(cuenta1.getSaldo(),1000,new Tipo("Consignacion")));
+        cuenta1.crearConsignacion(0, 1000);
+        cuenta1.getMovimientos().add(new Movimiento(cuenta1.getSaldo(),300,new Tipo("Retiro")));
+        cuenta1.crearRetiro(1000, 300);
+        cuenta1.getMovimientos().add(new Movimiento(cuenta1.getSaldo(),700,new Tipo("Retiro")));
+        cuenta1.crearRetiro(700, 700);
+        
         banco.getCuentas().add(cuenta2);
         banco.getCuentas().add(cuenta1);
         
@@ -76,7 +87,7 @@ public class EjercicioRelaciones2 {
                         if(tipo!=1 && tipo!=2){
                         System.out.println("Transaccion invalida");
                         System.out.println("Gracias por usar nuestro servicio "+banco.getCuentas().get(i).getNombre_cliente());
-                        break;
+                        System.exit(0);
                         }
                         System.out.println("Transaccion completada. Su saldo actual es "+banco.getCuentas().get(i).getSaldo());
                         System.out.println("Presione 1 para realizar otra transaccion. ");

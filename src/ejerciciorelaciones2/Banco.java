@@ -40,13 +40,13 @@ public class Banco {
             System.out.println("Movimientos: ");
             for (int j=0; j<cuentas.get(i).getMovimientos().size(); j++){
                 
-                System.out.println("Cantidad" + cuentas.get(i).getMovimientos().get(j).getCantidad());
+                System.out.println("Cantidad " + cuentas.get(i).getMovimientos().get(j).getCantidad());
                 
                 if(cuentas.get(i).getMovimientos().get(j).getTipo().getNum_transaccion().equals("Consignacion")){
-                    System.out.println("El saldo era " + (cuentas.get(i).getMovimientos().get(j).getSaldo()-cuentas.get(i).getMovimientos().get(j).getCantidad()));
+                    System.out.println("El saldo es " + (cuentas.get(i).getMovimientos().get(j).getSaldo()+cuentas.get(i).getMovimientos().get(j).getCantidad()));
                 }
                 if(cuentas.get(i).getMovimientos().get(j).getTipo().getNum_transaccion().equals("Retiro")){
-                    System.out.println("El saldo era " + (cuentas.get(i).getMovimientos().get(j).getSaldo()+cuentas.get(i).getMovimientos().get(j).getCantidad()));
+                    System.out.println("El saldo es " + (cuentas.get(i).getMovimientos().get(j).getSaldo()-cuentas.get(i).getMovimientos().get(j).getCantidad()));
                 }
                 
                 System.out.println("La transaccion fue un(a) " + cuentas.get(i).getMovimientos().get(j).getTipo().getNum_transaccion());
